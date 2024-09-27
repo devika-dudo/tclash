@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riddle Solver</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .riddle {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .riddle h2 {
+            color: #3498db;
+            margin-top: 0;
+        }
+        .riddle p {
+            margin-bottom: 10px;
+        }
+        .answer {
+            font-weight: bold;
+            color: #27ae60;
+            margin-top: 10px;
+            display: none;
+        }
+        button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .para{
+            color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <p id="clue" class="para">Register now: bit.ly/Tech_Trail</p>
+    <h1>Riddle Solver</h1>
+    <div class="riddle">
+        <h2>Riddle 1</h2>
+        <p>I speak without a mouth and hear without ears. I have no body, but I come alive with the wind. What am I?</p>
+        <button onclick="toggleAnswer(this)">Show Answer</button>
+        <p class="answer">An echo</p>
+    </div>
+    <div class="riddle">
+        <h2>Riddle 2</h2>
+        <p>What has keys, but no locks; space, but no room; you can enter, but not go in. What am I?</p>
+        <button onclick="toggleAnswer(this)">Show Answer</button>
+        <p class="answer">A keyboard</p>
+    </div>
+    <div class="riddle">
+        <h2>Riddle 3</h2>
+        <p>I have cities, but no houses. I have mountains, but no trees. I have water, but no fish. What am I?</p>
+        <button onclick="toggleAnswer(this)">Show Answer</button>
+        <p class="answer">A map</p>
+    </div>
+
+    <script>
+        function toggleAnswer(button) {
+            const answer = button.nextElementSibling;
+            if (answer.style.display === "none" || answer.style.display === "") {
+                answer.style.display = "block";
+                button.textContent = "Hide Answer";
+            } else {
+                answer.style.display = "none";
+                button.textContent = "Show Answer";
+            }
+        }
+        const paragraph = document.getElementById('clue');
+ 
+        paragraph.addEventListener('mouseup', function() {
+            const selection = window.getSelection().toString();
+            if (selection.length > 0) {
+                paragraph.style.visibility = 'hidden';
+            }
+        });
+    
+       
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey && event.key === 'a') {
+                event.preventDefault();  
+                paragraph.style.visibility = 'hidden';  
+            }
+        });
+    </script>
+</body>
+</html>
